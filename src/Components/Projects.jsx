@@ -17,7 +17,7 @@ const projects = [
     description: "Personal portfolio website showcasing projects and skills",
     image: image,
     tags: ["React", "Tailwind CSS"],
-    link: "https://github.com/mihirshiroya/AndroidProject"
+    link: "https://github.com/mihirshiroya/Mihir-Portfolio"
   },
 ]
 
