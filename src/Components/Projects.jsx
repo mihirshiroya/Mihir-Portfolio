@@ -27,8 +27,8 @@ const handleRedirect = (link) => {
 
 export default function Projects() {
     return (
-        <div className="w-full mx-auto  py-8 bg-gray-800">
-          <h1 className="text-3xl font-bold mb-8 text-center text-white">My Portfolio</h1>
+        <div className="w-full mx-auto  py-8 bg-black border-t border-gray-900">
+          <h1 className="text-3xl font-bold mb-8 text-center text-yellow-300">My Portfolio</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 lg:px-40">
             {projects.map((project) => (
               <div key={project.id} onClick={() => handleRedirect(project.link)} className="bg-white rounded-lg shadow-md overflow-hidden">

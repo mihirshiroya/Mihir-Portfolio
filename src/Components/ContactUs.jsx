@@ -34,9 +34,9 @@ export default function ContactUs() {
   }
 
   return (
-    <section className="bg-gray-800 min-h-screen py-12 flex flex-col items-center justify-center" id='contactus'>
+    <section className="bg-black border-t border-gray-900 min-h-screen py-12 flex flex-col items-center justify-center" id='contactus'>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-center mb-8 text-white">Contact Us</h1>
+        <h1 className="text-4xl font-bold text-center mb-8 text-yellow-300">Contact Us</h1>
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           <div className="md:flex">
             <div className="md:w-1/2 p-8">

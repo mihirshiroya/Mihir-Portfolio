@@ -3,7 +3,7 @@ import { Github, Linkedin, Twitter } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-black ">
+    <footer className="bg-black border-t border-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-8 md:py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">

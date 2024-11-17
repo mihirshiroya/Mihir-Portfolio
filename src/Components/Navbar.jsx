@@ -43,7 +43,7 @@ export default function Navbar() {
               <a href="#" className={`text-2xl font-bold ${
                 isScrolled ? 'text-gray-800' : 'text-white'
               }`}>
-                <h1 className='font-allura'>Mihir Shiroya</h1>
+                <h1 className='font-allura font-bold'>Mihir Shiroya</h1>
               </a>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">

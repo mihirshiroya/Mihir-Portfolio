@@ -8,6 +8,18 @@ import firebase from '../assets/firebase.svg'
 export default function Skill() {
     const skills = [
         {
+            name: "Kotlin",
+            icon: (
+                <img src={kotlin} alt="kotlin-logo" />
+            ),
+        },
+        {
+            name: "Jetpack Compose",
+            icon: (
+                <img src={jetpack} alt="jetpack-logo" />
+            ),
+        },
+        {
             name: "JavaScript",
             icon: (
                 <svg viewBox="0 0 128 128" className="skill-icon">
@@ -53,18 +65,6 @@ export default function Skill() {
             )
         },
         {
-            name: "Kotlin",
-            icon: (
-                <img src={kotlin} alt="kotlin-logo" />
-            ),
-        },
-        {
-            name: "Jetpack Compose",
-            icon: (
-                <img src={jetpack} alt="jetpack-logo" />
-            ),
-        },
-        {
             name: "Python",
             icon: (
                 <img src={python} alt="python-logo" />
@@ -86,9 +86,9 @@ export default function Skill() {
     ]
 
     return (
-        <section className="py-12 bg-black">
+        <section className="py-12 bg-black border-t border-gray-900">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-bold text-white text-center mb-8">My Skills</h2>
+                <h2 className="text-3xl font-bold text-yellow-300 text-center mb-10">My Skills</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
                     {skills.map((skill, index) => (
                         <div key={index} className="flex flex-col items-center">
