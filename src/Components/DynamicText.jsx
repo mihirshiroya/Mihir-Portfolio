@@ -1,37 +1,57 @@
-'use client'
+import React, { useState, useEffect } from 'react'
 
-import { useState, useEffect } from 'react'
-
-export default function DynamicText({ name = "John Doe" }) {
-  const [text, setText] = useState(name)
-  const [isChangingToWebDev, setIsChangingToWebDev] = useState(true)
+export default function DynamicText() {
+  const texts = [
+    "Mihir Shiroya",
+    "Software Developer"
+  ]
+  const [currentTextIndex, setCurrentTextIndex] = useState(0)
+  const [displayText, setDisplayText] = useState('')
+  const [showCursor, setShowCursor] = useState(true)
+  const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
-    const targetText = isChangingToWebDev ? "Software Developer" : name
-    
-    if (text === targetText) {
-      const timeout = setTimeout(() => {
-        setIsChangingToWebDev(!isChangingToWebDev)
-      }, 2000) // Wait for 2 seconds before starting the reverse transition
-      return () => clearTimeout(timeout)
+    let timer
+
+    const animateText = () => {
+      const currentFullText = texts[currentTextIndex]
+      const shouldSwitch = !isDeleting && displayText === currentFullText
+      const shouldStartDeleting = isDeleting && displayText === ''
+
+      if (shouldSwitch) {
+        setIsDeleting(true)
+        timer = setTimeout(animateText, 1000) // Pause before deleting
+      } else if (shouldStartDeleting) {
+        setIsDeleting(false)
+        setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length)
+      } else if (isDeleting) {
+        setDisplayText((prevText) => prevText.slice(0, -1))
+        timer = setTimeout(animateText, 50) // Deleting speed
+      } else {
+        setDisplayText((prevText) => currentFullText.slice(0, prevText.length + 1))
+        timer = setTimeout(animateText, 100) // Typing speed
+      }
     }
 
-    const timeout = setTimeout(() => {
-      if (text.length > targetText.length) {
-        setText(text.slice(0, -1))
-      } else {
-        setText(targetText.slice(0, text.length + 1))
-      }
-    }, 50) // Change one character every 100ms
+    timer = setTimeout(animateText, 100)
 
-    return () => clearTimeout(timeout)
-  }, [text, isChangingToWebDev, name])
+    return () => clearTimeout(timer)
+  }, [currentTextIndex, displayText, isDeleting])
+
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev)
+    }, 500)
+
+    return () => clearInterval(cursorInterval)
+  }, [])
 
   return (
-  
-      <h1 className="text-4xl font-bold text-blue-600 transition-all duration-500 ease-in-out min-w-[300px]">
-        {text}
-      </h1>
-   
+    <div className="flex items-start">
+      <div className="text-4xl font-bold text-blue-600">
+        {displayText}
+        <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} text-gray-100 transition-opacity duration-100`}>|</span>
+      </div>
+    </div>
   )
 }

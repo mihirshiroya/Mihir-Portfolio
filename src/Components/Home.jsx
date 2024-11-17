@@ -7,8 +7,8 @@ const Home = () => {
         <div className="min-h-screen w-full bg-black flex flex-col md:gap-16 md:flex-row items-center justify-evenly px-10 md:justify-between lg:px-40">
   {/* First Div */}
   <div className=" order-2 md:order-1 flex-1 mb-4 md:w-1/2 ">
-    <p className='text-yellow-300 mt-4 text-3xl mb-2'>Hello, I am</p>
-    <DynamicText name="MIHIR SHIROYA" />
+    <p className='text-yellow-300 mt-4 text-xl mb-1'>Hello, I am</p>
+    <DynamicText />
     <p className='text-gray-400 mb-4 mt-2'>
       I’m a top web and app developer with a proven track record of creating innovative digital solutions that captivate users and drive results. I began my career by designing and launching cutting-edge platforms that gained rapid traction, achieving millions of active users and website visitors in just a few short years. My expertise spans front-end and back-end development, ensuring seamless performance and exceptional user experiences. Passionate about turning ideas into scalable, high-performing applications, I help brands and businesses thrive in the digital world.
     </p>
